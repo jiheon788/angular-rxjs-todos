@@ -1,0 +1,17 @@
+<h2>로그인</h2>
+<form (ngSubmit)="onLogin()">
+  <label for="email">이메일</label>
+  <input id="email" [(ngModel)]="email" name="email" required />
+
+  <label for="password">비밀번호</label>
+  <input
+    id="password"
+    [(ngModel)]="password"
+    name="password"
+    type="password"
+    required
+  />
+
+  <button type="submit">로그인</button>
+</form>
+<p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
