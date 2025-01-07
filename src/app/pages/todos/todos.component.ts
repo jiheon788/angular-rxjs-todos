@@ -32,4 +32,19 @@ export class TodosComponent implements OnInit {
       },
     });
   }
+
+  onDelete(id: string): void {
+    if (confirm('Are you sure you want to delete this Todo?')) {
+      this.todoService.deleteTodo(id).subscribe({
+        next: () => {
+          alert('Todo deleted successfully!');
+          this.fetchTodos(); // 목록을 다시 가져옵니다
+        },
+        error: (err) => {
+          this.errorMessage = 'Failed to delete the Todo. Please try again.';
+          console.error(err);
+        },
+      });
+    }
+  }
 }

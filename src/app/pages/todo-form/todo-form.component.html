@@ -1,1 +1,23 @@
-<p>todo-form works!</p>
+<h2>{{ isEditMode ? 'Edit Todo' : 'Create Todo' }}</h2>
+
+<form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="title">Title</label>
+    <input id="title" formControlName="title" />
+    <div *ngIf="getErrorMessage('title')">
+      <small>{{ getErrorMessage('title') }}</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="content">Content</label>
+    <textarea id="content" formControlName="content"></textarea>
+    <div *ngIf="getErrorMessage('content')">
+      <small>{{ getErrorMessage('content') }}</small>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="todoForm.invalid">
+    {{ isEditMode ? 'Update' : 'Create' }}
+  </button>
+</form>

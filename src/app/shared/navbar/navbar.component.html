@@ -9,5 +9,15 @@
     <li><a routerLink="/login" routerLinkActive="active">로그인</a></li>
     <li><a routerLink="/signup" routerLinkActive="active">회원가입</a></li>
     <li><a routerLink="/todos" routerLinkActive="active">투두</a></li>
+
+    <!-- 로그인 상태일 때만 표시 -->
+    <li *ngIf="isLoggedIn">
+      <a routerLink="/todos/new" routerLinkActive="active">Todo 생성</a>
+    </li>
+
+    <!-- 로그아웃 버튼 -->
+    <li *ngIf="isLoggedIn">
+      <button (click)="onLogout()">로그아웃</button>
+    </li>
   </ul>
 </nav>
