@@ -1,1 +1,11 @@
-<p>todos works!</p>
+<h2>Todo List</h2>
+<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+<ul>
+  <li *ngFor="let todo of todos">
+    <a [routerLink]="['/todos', todo.id]">
+      <h3>{{ todo.title }}</h3>
+    </a>
+    <p>{{ todo.content }}</p>
+    <small>Created: {{ todo.createdAt | date: 'short' }}</small>
+  </li>
+</ul>

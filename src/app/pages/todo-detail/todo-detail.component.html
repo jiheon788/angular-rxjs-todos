@@ -1,0 +1,14 @@
+<h2>Todo Details</h2>
+
+<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+<div *ngIf="todo">
+  <h3>{{ todo.title }}</h3>
+  <p>{{ todo.content }}</p>
+  <small>Created: {{ todo.createdAt | date: 'short' }}</small>
+  <small>Updated: {{ todo.updatedAt | date: 'short' }}</small>
+</div>
+
+<div *ngIf="!todo && !errorMessage" class="loading">
+  Loading Todo details...
+</div>
